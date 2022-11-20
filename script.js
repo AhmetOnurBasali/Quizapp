@@ -75,14 +75,19 @@ function answer(a) {
 
     let rightAnswer = a.slice(-1);
 
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
+
     if (rightAnswer == question['right_answer']) {
-        console.log('Richtige Antwort!!!')
+        document.getElementById(a).parentNode.classList.add('bg-success');
+        document.getElementById(a).parentNode.classList.remove('quiz-answer-card');
     }
 
-    else (
-        console.log('Falsche Antwort!!!')
-
-    )
+    else {
+        document.getElementById(a).parentNode.classList.add('bg-danger');
+        document.getElementById(a).parentNode.classList.remove('quiz-answer-card');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        
+}
 
 
 }
