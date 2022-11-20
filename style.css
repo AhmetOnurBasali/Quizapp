@@ -22,3 +22,14 @@ body {
     align-items: center;
 
 }
+
+.quiz-answer-card {
+   
+
+}
+
+.quiz-answer-card:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+
+}
