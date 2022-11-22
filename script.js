@@ -46,6 +46,8 @@ let questions = [
 ];
 
 
+
+
 let currentQuestion = 0;
 
 
@@ -77,6 +79,9 @@ function answer(a) {
 
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
+
+    
+
     if (rightAnswer == question['right_answer']) {
         document.getElementById(a).parentNode.classList.add('bg-success');
         document.getElementById(a).parentNode.classList.remove('quiz-answer-card');
@@ -86,8 +91,10 @@ function answer(a) {
         document.getElementById(a).parentNode.classList.add('bg-danger');
         document.getElementById(a).parentNode.classList.remove('quiz-answer-card');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
-        
-}
+
+    }
+
+    document.getElementById('next-button').disabled = false;
 
 
 }
