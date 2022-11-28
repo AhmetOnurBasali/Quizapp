@@ -44,3 +44,28 @@ let questions = [
 ];
 
 
+let question = 0;
+
+
+
+function init() {
+   document.getElementById('questions-all').innerHTML = questions.length;
+
+   showQuestion();
+
+}
+
+
+function showQuestion() {
+    let thequestion = questions[question]
+    let theanswer = questions[question]
+
+    document.getElementById('the-Question').innerHTML = thequestion['question'];
+    document.getElementById('answer_1').innerHTML = theanswer['answer_1'];
+    document.getElementById('answer_2').innerHTML = theanswer['answer_2'];
+    document.getElementById('answer_3').innerHTML = theanswer['answer_3'];
+    document.getElementById('answer_4').innerHTML = theanswer['answer_4'];
+
+
+
+}

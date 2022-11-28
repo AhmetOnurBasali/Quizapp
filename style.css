@@ -1,37 +1,29 @@
 body {
-    background-color: turquoise !important;
+    background-color: aqua !important;
     min-height: 100vh;
+
 }
 
 .container {
-    height: 94vh;
-    background-color: turquoise !important;
+    background-color: aqua !important;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-direction: column;
+    min-height: calc(100vh - 50px);
 
 }
 
-.question-footer {
-    margin-top: 12px;
-    padding-top: 8px;
-    border-top: 1px solid lightgray;
+.card-img-top{
+    height: 200px;
+
+}
+
+.question-footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-}
-
-.quiz-answer-card:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.1) !important;
-    color: black;
-
-}
-
-.bg-success, .bg-danger {
-    color: white;
-    cursor: pointer;
+    border-top: 1px solid lightgray;
+    padding-top: 12px;
 
 }
