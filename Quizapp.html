@@ -32,8 +32,28 @@
 
     <div class="container">
         <div class="card" style="width: 30rem;">
-            <img src="verschiedene styles/Quizapp Blue/Group 5.png" class="card-img-top">
-            <div class="card-body">
+            <img id="header-img" src="verschiedene styles/Quizapp Blue/Group 5.png" class="card-img-top">
+
+            <div class="progress">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;">0%</div>
+              </div>
+
+
+
+            <div style="display:none;" id="endscreen">
+                <h1 class="text-center">Quiz beendet !</h1>
+
+                <div class="text-center"><h5>Du hast <b id="amount-of-right-questions">xxx</b> von <b id="question-all">xxx</b></h5></div>
+
+                <div class="newgame"> <button id="newgame" onclick="restart()" class="btn btn-primary newgame">Spiel Neustarten!</button></div>
+
+            </div>
+
+
+
+
+
+            <div class="card-body" id="Question-card">
                 <h5 class="card-title" id="the-Question">Frage</h5>
 
 
@@ -72,7 +92,7 @@
 
                 <div class="question-footer">
                     <span>
-                        <b id="nr-of-question">1</b> von <b id="questions-all">4</b> Fragen
+                        <b id="nr-of-question">1</b> von <b id="questions-all">5</b> Fragen
                     </span>
 
 

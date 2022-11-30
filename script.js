@@ -45,6 +45,10 @@ let questions = [
 
 
 let currentQuestion = 0;
+let rightQuestions = 0;
+
+let audio_right = new Audio('Audio/correct.mp3');
+let audio_wrong = new Audio('Audio/wrong.mp3');
 
 
 
@@ -57,19 +61,51 @@ function init() {
 
 
 function showQuestion() {
+    if (returnOfEquel()) {
+        // ToDo show Endscreen
+        todoShowEndscreen();
+    }
+    else {
+        toShowquiz();
+    }
+}
+
+
+
+
+function returnOfEquel() {
+    return currentQuestion >= questions.length
+
+}
+
+
+function todoShowEndscreen() {
+    document.getElementById('Question-card').style = `display:none;`;
+    document.getElementById('endscreen').style = ``;
+    document.getElementById('question-all').innerHTML = questions.length;
+    document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+    document.getElementById('header-img').src = `
+    verschiedene styles/Quizapp Blue/trophäe.png`;
+
+}
+
+
+function toShowquiz() {
     let thequestion = questions[currentQuestion]
     let theanswer = questions[currentQuestion]
+    let percent = (currentQuestion + 1) / questions.length;
+    percent = Math.round(percent * 100);
 
-    
-    document.getElementById('nr-of-question').innerHTML = currentQuestion +1;
+    document.getElementById('progress-bar').style = `width:${percent}%;`;
+    document.getElementById('progress-bar').innerHTML = `${percent}%`;
 
+    document.getElementById('nr-of-question').innerHTML = currentQuestion + 1;
 
     document.getElementById('the-Question').innerHTML = thequestion['question'];
     document.getElementById('answer_1').innerHTML = theanswer['answer_1'];
     document.getElementById('answer_2').innerHTML = theanswer['answer_2'];
     document.getElementById('answer_3').innerHTML = theanswer['answer_3'];
     document.getElementById('answer_4').innerHTML = theanswer['answer_4'];
-
 }
 
 
@@ -81,10 +117,13 @@ function answer(a) {
 
     if (selectedQuestionNumber == question['right_answer']) {
         document.getElementById(a).parentNode.classList.add('bg-success');
+        audio_right.play();
+        rightQuestions++;
     }
     else {
         document.getElementById(a).parentNode.classList.add('bg-danger');
         document.getElementById(idOfTheRightAnswer).parentNode.classList.add('bg-success');
+        audio_wrong.play();
     }
     document.getElementById('next-button').disabled = false;
 
@@ -112,6 +151,23 @@ function removeButton() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
 
 }
+
+
+function restart() {
+    document.getElementById('header-img').src = `verschiedene styles/Quizapp Blue/Group 5.png`;
+
+    currentQuestion = 0;
+    rightQuestions = 0;
+
+    document.getElementById('Question-card').style = ``;
+    document.getElementById('endscreen').style = `display:none;`;
+
+    init();
+
+}
+
+
+
 
 
 
